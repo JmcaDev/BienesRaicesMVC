@@ -1,5 +1,6 @@
 // const express = require("express")// CommonJS
 import express from "express";
+import usuarioRoutes from "./routes/usuarioRoutes.js"
 
 //Crear app
 const servidor = express()
@@ -12,11 +13,5 @@ servidor.listen(puerto, () =>{
 })
 
 //Routing
-servidor.get("/", function(req, res){
-    res.send("Hola mundo en express")
-})
-
-servidor.get("/json", function(req, res){
-    res.json({msg: "Hola mundo desde express y json"})
-})
+servidor.use("/", usuarioRoutes)
 
